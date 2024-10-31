@@ -1,4 +1,5 @@
 import { series } from './data';
+import { Serie } from './Serie';
 
 function renderSeriesTable(series: Serie[]) {
     const tableBody = document.getElementById('series-table-body');
