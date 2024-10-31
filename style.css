@@ -1,0 +1,61 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 24px;
+    color: #ffffff;
+    background-color: #17a2b8;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+table.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table.table th,
+table.table td {
+    padding: 12px 15px;
+    border: 1px solid #dee2e6;
+    text-align: left;
+}
+
+table.table th {
+    background-color: #e9ecef;
+    color: #495057;
+    font-weight: bold;
+}
+
+table.table tbody tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+table.table tbody tr:hover {
+    background-color: #dfe6e9;
+    cursor: pointer;
+}
+
+#seasons-average {
+    font-size: 16px;
+    color: #555;
+    margin-top: 15px;
+    font-weight: bold;
+    text-align: right;
+}
