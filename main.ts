@@ -31,6 +31,5 @@ function displaySeasonsAverage(series: Serie[]) {
     }
 }
 
-// Inicializar la tabla y el promedio
 renderSeriesTable(series);
 displaySeasonsAverage(series);
