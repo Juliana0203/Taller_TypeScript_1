@@ -1,35 +1,41 @@
-import { series } from './data';
-import { Serie } from './Serie';
+import { series } from './data.js';
+import { Serie } from './Serie.js';
 
-function renderSeriesTable(series: Serie[]) {
-    const tableBody = document.getElementById('series-table-body');
-    if (tableBody) {
-        tableBody.innerHTML = '';
-        series.forEach(serie => {
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td>${serie.id}</td>
-                <td>${serie.name}</td>
-                <td>${serie.channel}</td>
-                <td>${serie.seasons}</td>
-            `;
-            tableBody.appendChild(row);
-        });
-    }
+function renderSeriesTable(series: Serie[]): void {
+  const tableBody = document.getElementById('series-table-body');
+  if (tableBody) {
+    tableBody.innerHTML = ''; 
+    series.forEach((serie) => {
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${serie.id}</td>
+        <td><a href="${serie.link}" target="_blank">${serie.name}</a></td>
+        <td>${serie.channel}</td>
+        <td>${serie.seasons}</td>
+      `;
+      tableBody.appendChild(row);
+    });
+  }
 }
 
-function calculateSeasonsAverage(series: Serie[]): number {
-    const totalSeasons = series.reduce((sum, serie) => sum + serie.seasons, 0);
-    return totalSeasons / series.length;
+function calculateAverageSeasons(series: Serie[]): number {
+  const totalSeasons = series.reduce((acc, serie) => acc + serie.seasons, 0);
+  return series.length > 0 ? totalSeasons / series.length : 0;
 }
 
-function displaySeasonsAverage(series: Serie[]) {
-    const average = calculateSeasonsAverage(series);
-    const averageElement = document.getElementById('seasons-average');
-    if (averageElement) {
-        averageElement.textContent = `Seasons average: ${average.toFixed(1)}`;
-    }
+function renderAverageSeasons(series: Serie[]): void {
+  const averageElement = document.getElementById('average-seasons');
+  const average = calculateAverageSeasons(series);
+  if (averageElement) {
+    averageElement.textContent = `Average seasons: ${average.toFixed(2)}`;
+  }
 }
 
-renderSeriesTable(series);
-displaySeasonsAverage(series);
+function initialize(): void {
+  renderSeriesTable(series);
+  renderAverageSeasons(series);
+}
+
+document.addEventListener('DOMContentLoaded', initialize);
+
+
